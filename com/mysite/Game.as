@@ -220,7 +220,7 @@
 				hero.y = 25;
 			}
 
-			/*for (var k:int = 0; k<enemyRocketsArray.length; k++)
+			for (var k:int = 0; k<enemyRocketsArray.length; k++)
 			{
 				if (enemyRocketsArray[k].x > stage.stageWidth)
 				{
@@ -242,7 +242,7 @@
 					removeChild(enemyRocketsArray[k]);
 					enemyRocketsArray.splice(k, 1);
 				}
-			}*/
+			}
 		}
 
 	}
