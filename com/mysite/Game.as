@@ -53,10 +53,10 @@
 		}
 		public function gamebuilder():void
 		{
-			/*backgroundpic = new Background();
+			backgroundpic = new Background();
 			addChild(backgroundpic);
 			backgroundpic.x = 0;
-			backgroundpic.y = 870;*/
+			backgroundpic.y = 870;
 
 			score = new Score();
 			addChild(score);
