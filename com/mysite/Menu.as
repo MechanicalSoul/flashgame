@@ -25,7 +25,7 @@
 		
 		var menuItems:Array = new Array;
 		var MenuButton1:MenuButton = new MenuButton();
-		var txt:Array = ["new game", "options", "navigation", "rrt"];
+		var txt:Array = ["new game", "options", "rrt"];
 		var txtField:TextField = new TextField;
 		var txtItem:Array = new Array;
 		var currentIndex:int = 0;
@@ -33,6 +33,7 @@
 		var nav_help:Nav_help;
 		var options:Options;
 		var game:Game;
+		var menuback:MenuBack;
 		
 		
 		//Настройки эффектов
@@ -61,12 +62,15 @@
 		}
 		
 		public function menubuilder():void{
+			
+			menuback = new MenuBack();
+			addChild(menuback);
 			//trace("bb");
 			for(var i:int = 0; i<txtLength; i++){
 				menuItems[i] = new MenuButton();
 				menuItems[i].name = "menuButton" + i;
-				menuItems[i].x = 350;
-				menuItems[i].y = 200 + 200 * i;
+				menuItems[i].x = 720;
+				menuItems[i].y = 500 + 80 * i;
 				//menuItems[i].addEventListener(MouseEvent.CLICK, clicker);
 				addChild(menuItems[i]);
 				
@@ -103,14 +107,6 @@
 						options.y = 500;
 						break;
 					case 2: 
-						trace(currentIndex + ': ' + txt[currentIndex]);
-						eraser();
-						nav_help = new Nav_help();
-						addChild(nav_help);
-						nav_help.x = 500;
-						nav_help.y = 500;
-						break;	
-					case 3: 
 						trace(currentIndex + ': ' + txt[currentIndex]);
 						eraser();
 						fscommand("quit");

@@ -8,8 +8,9 @@
 		
 		
 		
-		public function Hero() {
-			
+		public function Hero(x:Number, y:Number) {
+			this.x = x;
+			this.y = y;
 		}
 		
 		

@@ -26,12 +26,7 @@
 			//speed++;
 		}
 		
-		public function hit():void
-		{
-			if(contains(this)) removeChild(this);
-			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			this.removeEventListener(Event.ENTER_FRAME, loop);
-		}
+	
 	}
 	
 }

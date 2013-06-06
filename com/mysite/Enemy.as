@@ -18,11 +18,14 @@
 		private var totalDistance:Number;
 		private var previousDistance:Number = 0;
 		private var currentDistance:Number = 0;
+		
+		
 
 		public function Enemy()
 		{
 			// constructor class
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			
 		}
 
 		private function onAddedToStage(e:Event):void
@@ -93,6 +96,8 @@
 			return Math.sqrt(Math.pow(this.x - this.newX,2) + 
 							 Math.pow(this.y - this.newY,2));			
 		}
+		
+		
 
 		private function enemySceneCutter():void
 		{
