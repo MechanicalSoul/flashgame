@@ -25,24 +25,33 @@
 		{
 			// constructor class
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			this.addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
 			
 		}
 
 		private function onAddedToStage(e:Event):void
 		{
+			
 			this.x = this.getX();
 			this.y = this.getY();
-		
+			
 			speed = Math.round(1 + Math.random() * 5);
 
 			this.addEventListener(Event.ENTER_FRAME, loop);
 			//addEnemys();
 		}
+		
+		private function onRemovedFromStage(e:Event):void
+		{
+			this.removeEventListener(Event.ENTER_FRAME, loop);
+		}
 
 		public function loop(e:Event):void
 		{
-			enemySceneCutter();
+			//enemySceneCutter();
 			//x -= 1 * Math.sin(rotation * (Math.PI/180))*0.5;
+			
+			
 			
 			this.previousDistance = this.currentDistance;
 			this.currentDistance = this.getDistance();
@@ -59,6 +68,7 @@
 			{
 				this.setNewPosition();
 			}
+		
 		}
 
 		private function setNewPosition()
@@ -99,7 +109,7 @@
 		
 		
 
-		private function enemySceneCutter():void
+		/*private function enemySceneCutter():void
 		{
 			if (x > stage.stageWidth)	
 			x = 0;
@@ -110,6 +120,6 @@
 			y = stage.stageHeight - 450;
 
 			else if (y < 200) y = 200;
-		}
+		}*/
 	}
 }

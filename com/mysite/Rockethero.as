@@ -11,12 +11,21 @@
 		
 		public function Rockethero() {
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			this.addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
 		}
 		
 		private function onAddedToStage(e:Event):void
 		{
 			speed = 8;
 			this.addEventListener(Event.ENTER_FRAME, loop);
+		}
+		
+		private function onRemovedFromStage(e:Event):void
+		{
+			
+			
+			this.removeEventListener(Event.ENTER_FRAME, loop);
+				
 		}
 		
 		private function loop(e:Event):void

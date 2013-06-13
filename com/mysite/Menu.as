@@ -14,19 +14,20 @@
 	import fl.motion.AdjustColor;
 	import flash.system.fscommand;
 	import flash.sensors.Accelerometer;
+		import flash.text.TextFormat;
 	
 	
 	public class Menu extends MovieClip{
-		/////////////t/a/s/k/l/i/s/t///////////
-		/*поменять цвет текущего элемента, отформатировать текст, прицеплять 
-		эффекты(прицеплять цыплят с цыпками к прицепам геотрансформ, размер сцены, 
-		отдельный класс, централизация программы?*/ 
 		
 		
 		var menuItems:Array = new Array;
 		var MenuButton1:MenuButton = new MenuButton();
-		var txt:Array = ["new game", "options", "rrt"];
+		var txt:Array = ["New game", "Navigation", "Exit"];
 		var txtField:TextField = new TextField;
+		
+		
+		
+		
 		var txtItem:Array = new Array;
 		var currentIndex:int = 0;
 		var txtLength:int = txt.length;
@@ -36,7 +37,7 @@
 		var menuback:MenuBack;
 		
 		
-		//Настройки эффектов
+	
 		var timeEffect:Number=3;
 		var defaultSize:Number=1;
 		var customSize:Number=2;
@@ -47,14 +48,14 @@
 		
 			
 			
-		public function Menu(){//конструктор
-			if(stage) init()//проверяем, добавлен ли этот объект (Menu) на сцену
-            else addEventListener(Event.ADDED_TO_STAGE, init); //если нет - добавь слушатель событий, срабатывающий при добавлении объекта на сцену
+		public function Menu(){
+			if(stage) init()
+            else addEventListener(Event.ADDED_TO_STAGE, init); 
 		}
 		
-		private function init(e:Event = null){ //Основной обработчик класса, заменяет конструктор
-			removeEventListener(Event.ADDED_TO_STAGE, init); //удали слушатель событий
-			//далее выполняй
+		private function init(e:Event = null){ 
+			removeEventListener(Event.ADDED_TO_STAGE, init); 
+			
 			trace("mm");
 			menubuilder();
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, navigation);
@@ -65,17 +66,26 @@
 			
 			menuback = new MenuBack();
 			addChild(menuback);
+			
+			var format:TextFormat = new TextFormat();
+ format.font = "Tahoma";
+ format.color = 0x000000;
+ format.size = 50;
+txtField.defaultTextFormat = format;
+			
+			
 			//trace("bb");
 			for(var i:int = 0; i<txtLength; i++){
 				menuItems[i] = new MenuButton();
 				menuItems[i].name = "menuButton" + i;
 				menuItems[i].x = 720;
-				menuItems[i].y = 500 + 80 * i;
+				menuItems[i].y = 415 + 80 * i;
 				//menuItems[i].addEventListener(MouseEvent.CLICK, clicker);
 				addChild(menuItems[i]);
 				
 				txtItem[i] = new TextField;
 				txtItem[i].text = txt[i];
+				
 				menuItems[i].addChild(txtItem[i]);
 				
 				menuItems[currentIndex];
@@ -108,7 +118,7 @@
 						break;
 					case 2: 
 						trace(currentIndex + ': ' + txt[currentIndex]);
-						eraser();
+						//eraser();
 						fscommand("quit");
 						break;	
 						
@@ -165,10 +175,10 @@
 			myShadow.quality = 3;
 			menuItems[currentIndex].filters = [myShadow];
 			
-			myColor.hue = -22;
-			myColor.saturation = 0;
-			myColor.brightness = 50;
-			myColor.contrast = 0;
+			//myColor.hue = -22;
+			//myColor.saturation = 0;
+			//myColor.brightness = 50;
+			//myColor.contrast = 0;
 			mMatrix = myColor.CalculateFinalFlatArray();
 			mColorMatrix = new ColorMatrixFilter(mMatrix);
 			
